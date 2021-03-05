@@ -92,8 +92,8 @@ puts "#{s3['1'].green} vs #{s3['4'].pink}. ----- The winner is: #{s3a.light_blue
 puts "#{s3['2'].green} vs #{s3['3'].pink}. ----- The winner is: #{s3b.light_blue}!!!!"
 puts "#{s4['1'].green} vs #{s4['4'].pink}. ----- The winner is: #{s4a.light_blue}!!!!"
 puts "#{s4['2'].green} vs #{s4['3'].pink}. ----- The winner is: #{s4b.light_blue}!!!!"
-puts
 
+puts
 puts "-- Round of 8 --"
 s1 = faceoff(s1a, s1b)
 s2 = faceoff(s2a, s2b)
@@ -103,9 +103,9 @@ s4 = faceoff(s4a, s4b)
 puts "It's #{s1a.green} vs #{s1b.pink}. ----- The winner is: #{s1.light_blue}!!!!!"
 puts "It's #{s2a.green} vs #{s2b.pink}. ----- The winner is: #{s2.light_blue}!!!!!"
 puts "It's #{s3a.green} vs #{s3b.pink}. ----- The winner is: #{s3.light_blue}!!!!!"
-puts "It's #{s4a.green} vs #{s4b.pink}. ----- The winner is: #{s4.light_blue}!!!!!"
-puts
+puts "It's #{s4a.green} vs #{s4b.pink}. ----- The winner is: #{s4.light_blue}!!!!!\n"
 
+puts
 puts "-- It's the semi-finals!!!! --"
 semi1 = faceoff(s1,s2)
 semi2 = faceoff(s3,s4)
@@ -119,15 +119,32 @@ zombies = zombifier(books, semi1, semi2)
 puts zombies
 puts
 
-puts "-- Look out, it's the zombie round! Braaaaainnnnnsss! --"
+puts "-- Look out, it's the zombie round! Braaaaainnnnnsss! --".red
+puts "#{semi1.light_blue} is facing off against the zombified remains of #{zombies[0].red}"
+puts "#{semi2.light_blue} is attempting to slay #{zombies[1].red}"
+puts
+
 fin1 = faceoff(zombies[0], semi1)
 fin2 = faceoff(zombies[1], semi2)
+
+if fin1 == zombies[0]
+  puts "Oh the humanity! #{fin1.red} has defeated #{semi1.light_blue}"
+else
+  puts "Phew! #{fin1.light_blue} has defeated #{zombies[0].red}"
+end 
+
+if fin2 == zombies[1]
+  puts "Oh dear! #{fin2.red} has defeated #{semi2.light_blue}"
+else
+  puts "Phew! #{fin2.light_blue} has defeated #{zombies[1].red}"
+end
+
 puts
 puts "Finalist 1: #{fin1.light_blue}"
-puts "Finalist 2: #{fin2.pink}"
+puts "Finalist 2: #{fin2.pink}\n"
 puts
 
 puts "-- It's the Final!!! --"
 winner = faceoff(fin1, fin2)
-puts
-puts "The winner is: #{winner.yellow}"
+
+puts "The winner is: #{winner.pink}"
