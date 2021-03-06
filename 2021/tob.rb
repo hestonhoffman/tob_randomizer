@@ -41,7 +41,17 @@ def strip_books(hash)
     array = array + value if value.is_a?(Array)
   end
   array
-end    
+end
+
+def judges
+  a = rand(1..16)
+  b = 17 - a
+  if a > b 
+    puts "Votes: #{a}/#{b}"
+  else 
+    puts "Votes: #{b}/#{a}"
+  end
+end
 
 books_hash = YAML.safe_load(File.open('books.yaml'))
 books = strip_books(books_hash)
@@ -147,4 +157,5 @@ puts
 puts "-- It's the Final!!! --"
 winner = faceoff(fin1, fin2)
 
-puts "The winner is: #{winner.pink}"
+puts "The winner is: #{winner.pink}!" 
+judges
