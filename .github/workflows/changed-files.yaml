@@ -8,6 +8,8 @@ jobs:
     steps:
     - name: Get Changed Files
       uses: hestonhoffman/changed-lines@v1
+      with:
+        file_filter: '.md'
       id: changed-files
       
     - name: Print Changed Files and Lines
